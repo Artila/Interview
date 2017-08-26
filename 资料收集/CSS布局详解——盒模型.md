@@ -85,8 +85,7 @@ CSS布局可以分为以下几大块：
       }
       <div class="box"></div>
       ```
-
-      ​
+       ![负外边距居中](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/box1.jpg)
 
       ​
 
@@ -107,6 +106,7 @@ CSS布局可以分为以下几大块：
       	margin-top:50px;
       }
       ```
+      ![垂直外边距合并](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/margin1.jpg)
 
       ​
 
@@ -130,7 +130,9 @@ CSS布局可以分为以下几大块：
 
    行内元素会生成一个**内容区**，类似于块级元素的content部分，**内容区**的大小与字体的大小相等。
 
-   内容区加上文字的上下边距就等于**行内框**的高度，可以通过设置line-height的高度控制行内框的高度。**行框**是包含该行中行内框最高点和最低点的最小框。如下图
+   内容区加上文字的上下边距就等于**行内框**的高度，可以通过设置line-height的高度控制行内框的高度。**行框**是包含该行中行内框最高点和最低点的最小框。如下图:
+   
+   ![行内元素](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/inline1.png)
 
 
 
