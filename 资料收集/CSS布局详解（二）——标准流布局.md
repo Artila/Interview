@@ -1,4 +1,4 @@
-# css布局详解（二）——标准流布局（Nomal flow）
+# CSS布局详解（二）——标准流布局（Nomal flow）
 
 转载：http://www.cnblogs.com/liugblog/p/4982684.html
 
@@ -37,7 +37,7 @@
 <div class="bottom"></div>
 ```
 
-
+![垂直外边距的合并](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/margin2.jpg)
 
 ##### 2、一个盒子包裹另一个盒子，当包裹盒子没有设置border和padding时，里边盒子的设置的上边距不会起作用。
 
@@ -59,11 +59,11 @@
 </div>
 ```
 
-
+![外边距不起作用](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/margin3.jpg)
 
 设置边框后：
 
-
+![设置边框后](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/margin4.jpg)
 
 **解释：**
 
@@ -163,29 +163,30 @@ BFC(Block formatting context)直译为"块级格式化上下文"。
 ##### 3、BFC的作用及原理
 
 1. 自适应两栏布局
-
-
+	
+   ![两栏布局](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/BFC1.png)	
+	
    根据BFC布局规则第3条：
 
    > 每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
 
    因此，虽然存在浮动的元素aslide，但main的左边依然会与包含块的左边相接触。
 
+   ![生成BFC](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/BFC6.png)	
 
+   根据BFC布局规则第四条：
 
-　根据BFC布局规则第四条：
-
-> BFC的区域不会与float box重叠。
+ > BFC的区域不会与float box重叠。
 
    我们可以通过通过触发main生成BFC， 来实现自适应两栏布局。
 
-```
-.main {
+   ```
+   .main {
 	overflow: hidden;
-}
-```
+     }
+   ```
 
-　当触发main生成BFC后，这个新的BFC不会与浮动的aside重叠。因此会根据包含块的宽度，和aside的宽度，自动变窄。
+    当触发main生成BFC后，这个新的BFC不会与浮动的aside重叠。因此会根据包含块的宽度，和aside的宽度，自动变窄。
 
 
 
@@ -213,25 +214,25 @@ BFC(Block formatting context)直译为"块级格式化上下文"。
    </body>
    ```
 
+   ![浮动问题](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/BFC2.png)	
 
+   根据BFC布局规则第六条：
 
-​	根据BFC布局规则第六条：
-
-> 计算BFC的高度时，浮动元素也参与计算
+  > 计算BFC的高度时，浮动元素也参与计算
 
 　　为达到清除内部浮动，我们可以触发par生成BFC，那么par在计算高度时，par内部的浮动元素child也会参与计算。
 
 　　代码：
 
-```
-.par {
-    overflow: hidden;
-}
-```
+     ```
+     .par {
+       overflow: hidden;
+      }
+     ```
 
 　　效果如下：
 
-
+    ![清除浮动](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/BFC3.png)	
 
 3. 防止垂直 margin 重叠
 
@@ -252,38 +253,39 @@ BFC(Block formatting context)直译为"块级格式化上下文"。
    </body>
    ```
 
+  ![防止垂直 margin 重叠](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/BFC4.png)	
 
-
-​	两个p之间的距离为100px，发送了margin重叠。
+    两个p之间的距离为100px，发送了margin重叠。
+    
 　　根据BFC布局规则第二条：
 
-> Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠
+  > Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠
 
 　　我们可以在p外面包裹一层容器，并触发该容器生成一个BFC。那么两个P便不属于同一个BFC，就不会发生margin重叠了。
 
 
-
-```css
-<style>
-.wrap {
-    overflow: hidden;
-}
-p {
-    color: #f55;
-    background: #fcc;
-    width: 200px;
-    line-height: 100px;
-    text-align:center;
-    margin: 100px;
-}
-</style>
-<body>
-<p>Haha</p>
-<div class="wrap">
-    <p>Hehe</p>
-</div>
-</body>
-```
+	```css
+	<style>
+	.wrap {
+	    overflow: hidden;
+	}
+	p {
+	    color: #f55;
+	    background: #fcc;
+	    width: 200px;
+	    line-height: 100px;
+	    text-align:center;
+	    margin: 100px;
+	}
+	</style>
+	<body>
+	<p>Haha</p>
+	<div class="wrap">
+	    <p>Hehe</p>
+	</div>
+	</body>
+	```
+![防止垂直 margin 重叠](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/BFC5.png)
 
 #### 总结
 
