@@ -52,7 +52,7 @@
 	height: 200px; 
 	background: purple; 
 	margin-left: 100px; 
-	margin-top: 50px; 
+	margin-top: 100px; 
 } 
 <div class="father">
    <div class="son">
