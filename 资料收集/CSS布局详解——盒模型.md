@@ -106,9 +106,7 @@ CSS布局可以分为以下几大块：
       	margin-top:50px;
       }
       ```
-      ![垂直外边距合并](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/margin1.jpg)
-
-      ​
+       ![垂直外边距合并](https://github.com/Artila/Interview/blob/master/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/img/margin1.jpg)
 
    5. **设置值为auto**
 
